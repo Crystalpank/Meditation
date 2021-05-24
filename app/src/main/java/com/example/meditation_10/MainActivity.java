@@ -16,14 +16,14 @@ public class MainActivity extends AppCompatActivity {
     TextView textView;
     SeekBar seekBar;
     MediaPlayer mediaPlayer;
-    float volume = 0.99f;
+    float volume = 0.999f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textView = (TextView) findViewById(R.id.textSeekValue);
-        seekBar = (SeekBar) findViewById(R.id.seekBar);
+        textView = findViewById(R.id.textSeekValue);
+        seekBar = findViewById(R.id.seekBar);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         volume -= deltaVolume;
     }
     public void buttonPlay(View view) {
-        volume = 0.99f;
+        volume = 0.999f;
         mediaPlayer = MediaPlayer.create(this, R.raw.hang);
         mediaPlayer.start();
         mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
