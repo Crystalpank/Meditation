@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Meditation_1.0</string>
+    <string name="textSeekValue">0 минут</string>
+    <string name="description">Выбери продолжительность медитации в минутах:</string>
+    <string name="button">Play</string>
+    <string name="buttonStop">Stop</string>
+</resources>
