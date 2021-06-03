@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">Meditation_1.0</string>
-    <string name="textSeekValue">0 минут</string>
+    <string name="textSeekValue">5 минут</string>
     <string name="description">Выбери продолжительность медитации в минутах:</string>
     <string name="button">Play</string>
     <string name="buttonStop">Stop</string>
+    <string name="radioButton_1">Космический Ханг</string>
+    <string name="radiobutton_2">Сознание природы</string>
+    <string name="radiobutton_3">Летний дождь</string>
 </resources>

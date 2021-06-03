@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     TextView textView;
     SeekBar seekBar;
     MediaPlayer mediaPlayer;
+    Timer timer;
+    int idMusic = R.raw.hang;
     float volume = 0.999f;
 
     @Override
@@ -42,6 +45,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    public void onRadioButtonClicked(View view) {
+        boolean checked = ((RadioButton) view).isChecked();
+        switch (view.getId()){
+            case R.id.radioButton_1:
+                if (checked) {
+                    idMusic = R.raw.hang;
+                }
+                break;
+            case R.id.radioButton_2:
+                if (checked) {
+                    idMusic = R.raw.supernatural;
+                }
+                break;
+            case R.id.radioButton_3:
+                if (checked) {
+                    idMusic = R.raw.rain;
+                }
+                break;
+        }
+    }
     private void stopPlay(){
         mediaPlayer.stop();
         try {
@@ -52,12 +75,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     private void startFadeIn() {
-        final int FADE_DURATION = 5000;
+        final int FADE_DURATION = 10000;
         final int FADE_INTERVAL = 250;
         int numberOfSteps = FADE_DURATION/FADE_INTERVAL;
         final float deltaVolume = volume/(float) numberOfSteps;
 
-        final Timer timer = new Timer(true);
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
@@ -79,7 +101,13 @@ public class MainActivity extends AppCompatActivity {
     }
     public void buttonPlay(View view) {
         volume = 0.999f;
-        mediaPlayer = MediaPlayer.create(this, R.raw.hang);
+        if (mediaPlayer != null){
+            if (mediaPlayer.isPlaying()){
+                return;
+            }
+        }
+        timer = new Timer(true);
+        mediaPlayer = MediaPlayer.create(this, idMusic);
         mediaPlayer.start();
         mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
@@ -90,7 +118,11 @@ public class MainActivity extends AppCompatActivity {
         startFadeIn();
     }
     public void buttonStop(View view) {
-        stopPlay();
+        if (timer != null){
+            timer.cancel();
+            timer.purge();
+            stopPlay();
+        }
     }
 
 }
