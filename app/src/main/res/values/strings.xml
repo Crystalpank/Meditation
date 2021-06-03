@@ -7,4 +7,6 @@
     <string name="radioButton_1">Космический Ханг</string>
     <string name="radiobutton_2">Сознание природы</string>
     <string name="radiobutton_3">Летний дождь</string>
+    <string name="radiobutton_4">Ссылка YouTube</string>
+    <string name="input_link">код ссылки YouTube</string>
 </resources>

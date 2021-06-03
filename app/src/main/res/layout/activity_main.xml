@@ -6,106 +6,129 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.007">
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <TextView
-            android:id="@+id/description"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:fontFamily="@font/prosto_one"
-            android:paddingLeft="40dp"
-            android:paddingRight="40dp"
-            android:text="@string/description"
-            android:textSize="18sp" />
+            android:orientation="vertical">
 
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/prosto_one"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:text="@string/description"
+                android:textSize="18sp" />
 
-            <RadioButton
-                android:id="@+id/radioButton_1"
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/radioButton_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:checked="true"
+                    android:fontFamily="@font/prosto_one"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="@string/radioButton_1" />
+
+                <RadioButton
+                    android:id="@+id/radioButton_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:fontFamily="@font/prosto_one"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="@string/radiobutton_2" />
+
+                <RadioButton
+                    android:id="@+id/radioButton_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:fontFamily="@font/prosto_one"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="@string/radiobutton_3" />
+
+                <RadioButton
+                    android:id="@+id/radioButton_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:fontFamily="@font/prosto_one"
+                    android:text="@string/radiobutton_4" />
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/inputLink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:autofillHints=""
+                android:hint="@string/input_link"
+                android:inputType="text"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+            <SeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="10dp"
+                android:max="60"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:progress="5" />
+
+            <TextView
+                android:id="@+id/textSeekValue"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:fontFamily="@font/prosto_one"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:text="@string/textSeekValue" />
+
+            <Button
+                android:id="@+id/buttonPlay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="10dp"
+                android:background="@android:color/holo_green_light"
+                android:fontFamily="@font/prosto_one"
+                android:onClick="buttonPlay"
+                android:text="@string/button" />
+
+            <Button
+                android:id="@+id/buttonStop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
                 android:fontFamily="@font/prosto_one"
-                android:text="@string/radioButton_1"
-                android:onClick="onRadioButtonClicked"
-                android:checked="true"/>
-
-            <RadioButton
-                android:id="@+id/radioButton_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:fontFamily="@font/prosto_one"
-                android:text="@string/radiobutton_2"
-                android:onClick="onRadioButtonClicked" />
-
-            <RadioButton
-                android:id="@+id/radioButton_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:fontFamily="@font/prosto_one"
-                android:text="@string/radiobutton_3"
-                android:onClick="onRadioButtonClicked"/>
-        </RadioGroup>
-
-        <SeekBar
-            android:id="@+id/seekBar"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginBottom="10dp"
-            android:max="60"
-            android:paddingLeft="40dp"
-            android:paddingRight="40dp"
-            android:progress="5" />
-
-        <TextView
-            android:id="@+id/textSeekValue"
-            android:layout_width="match_parent"
-            android:layout_height="47dp"
-            android:fontFamily="@font/prosto_one"
-            android:paddingLeft="40dp"
-            android:paddingRight="40dp"
-            android:text="@string/textSeekValue" />
-
-        <Button
-            android:id="@+id/buttonPlay"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginBottom="10dp"
-            android:background="@android:color/holo_green_light"
-            android:fontFamily="@font/prosto_one"
-            android:onClick="buttonPlay"
-            android:text="@string/button" />
-
-        <Button
-            android:id="@+id/buttonStop"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:fontFamily="@font/prosto_one"
-            android:onClick="buttonStop"
-            android:text="@string/buttonStop" />
-    </LinearLayout>
+                android:onClick="buttonStop"
+                android:text="@string/buttonStop" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
